@@ -1,0 +1,33 @@
+By Adding new Component : <app-search-text [(searchText)]="searchWord"></app-search-text>
+Your Input Text for search: {{inputTextVal}}<br><br>
+<input type="text" [(ngModel)]="searchWord" placeholder="Search" (keyup) ="onKey($event)"/>
+<button (click)="searchWordKey()">Search Patients</button><br><br>
+<span>Search by firstName. Example: firstname patient1</span><br><br>
+<table border="1">
+  <thead>
+    <tr>
+	<th>Index</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email Address</th>
+      <th>Doctor Name</th>
+    </tr>
+  </thead>
+  <tr *ngFor="let pt of displayPatientsList; let i = index">
+  <td>
+  {{i + 1}}
+  </td>
+  <td>
+    {{ pt.firstName }}
+	</td>
+	<td>
+    {{ pt.lastName }}
+	</td>
+	<td>
+    {{ pt.emailAddress }}
+	</td>
+	<td>
+    {{ pt.doctorName }}
+	</td>
+  </tr>
+</table>
